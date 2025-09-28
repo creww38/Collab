@@ -1,0 +1,135 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  align-items: center;
+  background: #e3e3e3;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.__carousel-slider {
+  filter: drop-shadow(4px 5px 11px #cecaca);
+  border-radius: 8px;
+  position:relative;
+  margin: auto;
+  overflow:hidden;
+  width: 800px;
+  background: white;
+}
+
+.__carousel-slider .__carousel-slide-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position:relative;
+}
+
+.__card {
+  background: white;
+  position: relative;
+  background: linear-gradient(0deg, #000000f7, #f20039c7 110.84%);
+  max-width: fit-content;
+}
+
+.__card img {
+  height: 400px;
+}
+.__card .__card-body {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: auto;
+  bottom: 15px;
+  left: 10px;
+  color: white;
+}
+
+.__card .__name {
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 20px;
+  color: white;
+  line-height: 13px;
+}
+
+.__card .__bigname span {
+     position: absolute;
+    color: #a22323f2;
+    writing-mode: vertical-lr;
+    right: 0;
+    letter-spacing: 1em;
+    font-size: 5em;
+    padding-top: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.__card .__position {
+  font-size: 20px;
+  color:#000000f7;
+  font-weight: 500;
+  font-family: Times New Roman;
+  font-weight: bold;
+}
+
+.__card .__card-image {
+  opacity: 0.9;
+  display: flex;
+}
+
+.__card,
+img {
+  border-radius: 10px;
+}
+
+/* Carousel Slider */
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
+
+.__carousel-slide-container {
+  animation: infinite-scroll 19.5s linear infinite;
+  display: flex;
+  width: calc(300px * 9);
+  overflow:hidden;
+}
+
+.__carousel-slide {
+  width: 300px;
+}
+
+.__carousel-slider::before,
+.__carousel-slider::after {
+		background: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 0) 100%
+	);
+		content: "";
+		height: 100%;
+		position: absolute;
+		width: 200px;
+		z-index: 2;
+	}
+
+	.__carousel-slider::after {
+		right: 0;
+		top: 0;
+		transform: rotateZ(180deg);
+	}
+
+	.__carousel-slider::before {
+		left: 0;
+		top: 0;
+	}
